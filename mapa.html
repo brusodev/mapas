@@ -1,143 +1,431 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
-    
-            <meta name="viewport" content="width=device-width,
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css" />
+
+  <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-            <style>
-                #map_71bc0ee02f152ee69e80da6683c5991a {
-                    position: relative;
-                    width: 100.0%;
-                    height: 100.0%;
-                    left: 0.0%;
-                    top: 0.0%;
-                }
-                .leaflet-container { font-size: 1rem; }
-            </style>
+  <style>
+    #map_71bc0ee02f152ee69e80da6683c5991a {
+      position: relative;
+      width: 100.0%;
+      height: 100.0%;
+      left: 0.0%;
+      top: 0.0%;
+    }
 
-            <style>html, body {
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-            </style>
+    .leaflet-container {
+      font-size: 1rem;
+    }
+  </style>
 
-            <style>#map {
-                position:absolute;
-                top:0;
-                bottom:0;
-                right:0;
-                left:0;
-                }
-            </style>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
 
-            <script>
-                L_NO_TOUCH = false;
-                L_DISABLE_3D = false;
-            </script>
+  <style>
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  </style>
 
-        
+  <script>
+    L_NO_TOUCH = false;
+    L_DISABLE_3D = false;
+  </script>
+
+
 </head>
+
 <body>
-    
-    
-            <div class="folium-map" id="map_71bc0ee02f152ee69e80da6683c5991a" ></div>
-        
-    
- <div style="position: fixed; 
-	 bottom: 50px; left: 50px; width: 180px; height: 90px; 
-	 background-color: white; z-index:9999; font-size:14px; border:2px solid grey; padding: 10px;">
-	 <b>Legenda</b><br>
-	 <span style="color: red; font-size:16px;">&#9679;</span> Área destacada<br>
-	 <span style="color: blue; font-size:16px;">&#9679;</span> Outro exemplo<br>
-	 <span style="font-size:16px;">&#9679;</span> Marcador padrão
- </div>
+
+
+  <div class="folium-map" id="map_71bc0ee02f152ee69e80da6683c5991a"></div>
+
+
+  <div style="position: fixed; 
+     bottom: 50px; 
+     left: 50px; 
+     width: 400px;
+     max-height: 80vh;
+     background-color: white; 
+     z-index: 9999; 
+     font-size: 14px; 
+     border-radius: 8px;
+     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+     padding: 15px;
+     overflow-y: auto;">
+
+    <div style="border-bottom: 2px solid #eee; margin-bottom: 15px; padding-bottom: 10px;">
+      <h4 style="margin: 0; color: #333; font-size: 18px;">Grupos e Valores Totais</h4>
+      <small style="color: #666;">Distribuição por regiões e investimentos</small>
+    </div>
+
+    <div style="display: grid; gap: 8px;">
+      <div class="legenda-item" style="display: flex; align-items: center; padding: 5px;">
+        <span style="color: red; font-size: 20px; margin-right: 10px;">●</span>
+        <div>
+          <div style="font-weight: 500;">GRUPO 01</div>
+          <div style="font-size: 12px; color: #666;">Total em 30 meses: R$ 12.830.960,26</div>
+        </div>
+      </div>
+
+      <div class="legenda-item" style="display: flex; align-items: center; padding: 5px;">
+        <span style="color: blue; font-size: 20px; margin-right: 10px;">●</span>
+        <div>
+          <div style="font-weight: 500;">GRUPO 02</div>
+          <div style="font-size: 12px; color: #666;">Total em 30 meses: R$ 12.830.960,26</div>
+        </div>
+      </div>
+
+      <div class="legenda-item" style="display: flex; align-items: center; padding: 5px;">
+        <span style="color: green; font-size: 20px; margin-right: 10px;">●</span>
+        <div>
+          <div style="font-weight: 500;">GRUPO 03</div>
+          <div style="font-size: 12px; color: #666;">Total em 30 meses: R$ 12.830.960,26</div>
+        </div>
+      </div>
+
+      <div class="legenda-item" style="display: flex; align-items: center; padding: 5px;">
+        <span style="color: purple; font-size: 20px; margin-right: 10px;">●</span>
+        <div>
+          <div style="font-weight: 500;">GRUPO 04</div>
+          <div style="font-size: 12px; color: #666;">Total em 30 meses: R$ 12.830.960,26</div>
+        </div>
+      </div>
+
+      <div class="legenda-item" style="display: flex; align-items: center; padding: 5px;">
+        <span style="color: orange; font-size: 20px; margin-right: 10px;">●</span>
+        <div>
+          <div style="font-weight: 500;">GRUPO 05</div>
+          <div style="font-size: 12px; color: #666;">Total em 30 meses: R$ 12.830.960,26</div>
+        </div>
+      </div>
+
+      <div class="legenda-item" style="display: flex; align-items: center; padding: 5px;">
+        <span style="color: brown; font-size: 20px; margin-right: 10px;">●</span>
+        <div>
+          <div style="font-weight: 500;">GRUPO 06</div>
+          <div style="font-size: 12px; color: #666;">Total em 30 meses: R$ 12.830.960,26</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 <script>
-    
-    
-            var map_71bc0ee02f152ee69e80da6683c5991a = L.map(
-                "map_71bc0ee02f152ee69e80da6683c5991a",
-                {
-                    center: [-23.55, -46.63],
-                    crs: L.CRS.EPSG3857,
-                    ...{
-  "zoom": 10,
-  "zoomControl": true,
-  "preferCanvas": false,
-}
 
-                }
-            );
 
-            
+  var map_71bc0ee02f152ee69e80da6683c5991a = L.map(
+    "map_71bc0ee02f152ee69e80da6683c5991a",
+    {
+      center: [-23.55, -46.63],
+      crs: L.CRS.EPSG3857,
+      ...{
+        "zoom": 10,
+        "zoomControl": true,
+        "preferCanvas": false,
+      }
 
-        
-    
-            var tile_layer_788c64beacd040ed8685d355f2b743bb = L.tileLayer(
-                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {
-  "minZoom": 0,
-  "maxZoom": 19,
-  "maxNativeZoom": 19,
-  "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
-  "subdomains": "abc",
-  "detectRetina": false,
-  "tms": false,
-  "opacity": 1,
-}
+    }
+  );
 
-            );
-        
-    
-            tile_layer_788c64beacd040ed8685d355f2b743bb.addTo(map_71bc0ee02f152ee69e80da6683c5991a);
-        
-    
-            var marker_1882f0cdf1534dc5314a1ce5d537905f = L.marker(
-                [-23.55, -46.63],
-                {
-}
-            ).addTo(map_71bc0ee02f152ee69e80da6683c5991a);
-        
-    
-        var popup_642fd3a0fe6982cfaf347ce337530389 = L.popup({
-  "maxWidth": "100%",
-});
 
-        
-            
-                var html_a8a87ce19cd9d4b7f30e5608e0e80afc = $(`<div id="html_a8a87ce19cd9d4b7f30e5608e0e80afc" style="width: 100.0%; height: 100.0%;">São Paulo</div>`)[0];
-                popup_642fd3a0fe6982cfaf347ce337530389.setContent(html_a8a87ce19cd9d4b7f30e5608e0e80afc);
-            
-        
 
-        marker_1882f0cdf1534dc5314a1ce5d537905f.bindPopup(popup_642fd3a0fe6982cfaf347ce337530389)
-        ;
 
-        
-    
-    
-            var circle_82d073e3d7b3770f960b3d34425f0c36 = L.circle(
-                [-23.56, -46.65],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(map_71bc0ee02f152ee69e80da6683c5991a);
-        
-    
-            tile_layer_788c64beacd040ed8685d355f2b743bb.addTo(map_71bc0ee02f152ee69e80da6683c5991a);
-        
+
+  var tile_layer_788c64beacd040ed8685d355f2b743bb = L.tileLayer(
+    "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+      "minZoom": 0,
+      "maxZoom": 19,
+      "maxNativeZoom": 19,
+      "noWrap": false,
+      "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+      "subdomains": "abc",
+      "detectRetina": false,
+      "tms": false,
+      "opacity": 1,
+    }
+
+  );
+
+
+  tile_layer_788c64beacd040ed8685d355f2b743bb.addTo(map_71bc0ee02f152ee69e80da6683c5991a);
+
+  // Carregar coordenadas e aplicar sombreamento leve (com logs e fallback)
+  var script = document.createElement('script');
+  script.src = './coordenadas.js';
+  script.onload = function () {
+    console.info('coordenadas.js carregado. mapasp_simples:', typeof window.mapasp_simples);
+    try {
+      var geojson = (typeof window.mapasp_simples === 'function') ? window.mapasp_simples() : null;
+      console.info('mapasp_simples() devolveu:', geojson && geojson.type ? geojson.type : geojson);
+      if (geojson && geojson.features && !window.__spGeoAdded) {
+        var spLayer = L.geoJSON(geojson, {
+          style: function (feature) {
+            return {
+              color: '#3388ff', // borda
+              weight: 1.2,
+              opacity: 0.90,
+              fillColor: '#ff0000', // preenchimento muito suave
+              fillOpacity: 0.16
+            };
+          }
+        }).addTo(map_71bc0ee02f152ee69e80da6683c5991a);
+        try {
+          if (spLayer && spLayer.getBounds && spLayer.getBounds().isValid()) {
+            map_71bc0ee02f152ee69e80da6683c5991a.fitBounds(spLayer.getBounds(), { padding: [20, 20] });
+          }
+        } catch (e) {
+          // ignore fitBounds errors
+        }
+        window.__spGeoAdded = true;
+      } else {
+        console.warn('GeoJSON inválido, vazio ou já adicionado por mapasp_simples');
+      }
+    } catch (e) {
+      console.error('Erro ao adicionar GeoJSON:', e);
+    }
+  };
+  script.onerror = function (e) {
+    console.error('Falha ao carregar coordenadas.js', e);
+  };
+  document.body.appendChild(script);
+
+  // Fallback: se por algum motivo onload não disparar (arquivos grandes), tente após 1s
+  setTimeout(function () {
+    if (typeof window.mapasp_simples === 'function') {
+      try {
+        var geojson2 = window.mapasp_simples();
+        if (geojson2 && geojson2.features && !window.__spGeoAdded) {
+          var spLayer2 = L.geoJSON(geojson2, {
+            style: { color: '#3388ff', weight: 1.2, opacity: 0.28, fillColor: '#e9f6ff', fillOpacity: 0.16 }
+          }).addTo(map_71bc0ee02f152ee69e80da6683c5991a);
+          try {
+            if (spLayer2 && spLayer2.getBounds && spLayer2.getBounds().isValid()) {
+              map_71bc0ee02f152ee69e80da6683c5991a.fitBounds(spLayer2.getBounds(), { padding: [20, 20] });
+            }
+          } catch (e) { }
+          window.__spGeoAdded = true;
+          console.info('GeoJSON adicionado via fallback');
+        }
+      } catch (err) {
+        console.error('Fallback: erro ao adicionar GeoJSON:', err);
+      }
+    } else {
+      console.info('Fallback: mapasp_simples ainda não disponível');
+    }
+  }, 1000);
+
+
+  var marker_1882f0cdf1534dc5314a1ce5d537905f = L.marker(
+    [-23.55, -46.63],
+    {
+    }
+  ).addTo(map_71bc0ee02f152ee69e80da6683c5991a);
+
+
+  var popup_642fd3a0fe6982cfaf347ce337530389 = L.popup({
+    "maxWidth": "100%",
+  });
+
+
+
+  var html_a8a87ce19cd9d4b7f30e5608e0e80afc = $(`<div id="html_a8a87ce19cd9d4b7f30e5608e0e80afc" style="width: 100.0%; height: 100.0%;">GRUPO 01<br>
+    TOTAL P/ 30 MESES | R$ 12.830.960,26<br>
+  
+  </div>
+  <div style="font-size: 12px;">TOTAL P/ 30 MESES | R$ 12.830.960,26</div>
+  <div style="font-size: 12px;">TOTAL MENSAL | R$ 427.698,68</div>
+  `)[0];
+  popup_642fd3a0fe6982cfaf347ce337530389.setContent(html_a8a87ce19cd9d4b7f30e5608e0e80afc);
+
+
+
+  marker_1882f0cdf1534dc5314a1ce5d537905f.bindPopup(popup_642fd3a0fe6982cfaf347ce337530389)
+    ;
+
+
+
+
+  var circle_82d073e3d7b3770f960b3d34425f0c36 = L.circle(
+    [-23.56, -46.65],
+    { "bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3 }
+  ).addTo(map_71bc0ee02f152ee69e80da6683c5991a);
+
+
+  tile_layer_788c64beacd040ed8685d355f2b743bb.addTo(map_71bc0ee02f152ee69e80da6683c5991a);
+
+  // === carregar grupos.json e aplicar coloração por grupo ===
+
+  async function normalizeName(s) {
+    if (!s) return '';
+    // remover acentos e normalizar para maiúsculas
+    try {
+      return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().trim();
+    } catch (e) {
+      // fallback simples
+      return s.replace(/[^A-Za-z0-9 ]/g, '').toUpperCase().trim();
+    }
+  }
+
+  async function loadAndColorGroups() {
+    // carregar grupos.json
+    const res = await fetch('./grupos.json');
+    if (!res.ok) { console.error('Falha ao carregar grupos.json'); return; }
+    const grupos = await res.json();
+
+    // construir mapa nomeMunicipioNormalizado -> grupoName
+    const nameToGroup = {};
+    for (const [groupName, cities] of Object.entries(grupos)) {
+      for (const city of cities) {
+        const n = await normalizeName(city);
+        nameToGroup[n] = groupName;
+      }
+    }
+    // palette automática (extenda se precisar)
+    const palette = [
+      '#2b6cff', '#ff6b6b', '#2ecc71', '#f39c12', '#9b59b6',
+      '#1abc9c', '#e67e22', '#34495e', '#16a085', '#7f8c8d',
+      '#c0392b', '#2980b9', '#27ae60'
+    ];
+    const groupColors = {};
+    let gi = 0;
+    for (const g of Object.keys(grupos)) groupColors[g] = palette[(gi++) % palette.length];
+
+    // garante que mapasp_completo exista; se não, carrega o script e espera
+    async function ensureMapaspCompleto() {
+      if (typeof window.mapasp_completo === 'function') return window.mapasp_completo;
+      // carregar dinamicamente
+      await new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = './coordenadas_completa.js';
+        s.onload = resolve;
+        s.onerror = () => reject(new Error('Erro ao carregar coordenadas_completa.js'));
+        document.body.appendChild(s);
+      });
+      return window.mapasp_completo;
+    }
+
+    try {
+      const fn = await ensureMapaspCompleto();
+      const geo = fn(); // deve devolver FeatureCollection com properties.name (ou id)
+      // anotar group nas features (se possível)
+      for (const f of geo.features) {
+        const cityName = (f.properties && (f.properties.name || f.properties.NOME || f.properties.CIDADE)) || f.properties && f.properties.id || '';
+        const norm = await normalizeName(cityName);
+        const g = nameToGroup[norm] || null;
+        if (g) f.properties.group = g;
+      }
+
+      // usar camada com estilo por group (reutilize addCitiesGroupedLayer/ highlightGroup do snippet anterior)
+      // vamos criar aqui uma versão simples e eficiente (canvas renderer)
+      const renderer = L.canvas({ padding: 0.5 });
+      const citiesLayer = L.geoJSON(geo, {
+        renderer,
+        filter: f => f.geometry && (f.geometry.type === 'Polygon' || f.geometry.type === 'MultiPolygon'),
+        style: (feature) => {
+          const g = feature.properties && feature.properties.group;
+          const color = g ? groupColors[g] : '#cccccc';
+          return { color, weight: 1.0, opacity: 0.45, fillColor: color, fillOpacity: 0.12 };
+        },
+        onEachFeature: (feature, layer) => {
+          const p = feature.properties || {};
+          const title = `${p.name || p.id || 'sem nome'}`;
+          layer.bindPopup(`<b>${title}</b><br>Grupo: ${p.group || 'N/A'}`);
+          layer.on('mouseover', () => { layer.setStyle({ weight: 2, fillOpacity: 0.28 }); layer.openPopup(); });
+          layer.on('mouseout', () => { citiesLayer.resetStyle(layer); layer.closePopup(); });
+        }
+      }).addTo(map_71bc0ee02f152ee69e80da6683c5991a);
+
+      // criar controle simples (select) para destacar grupos
+      const controlId = 'group-select-control';
+      if (!document.getElementById(controlId)) {
+        const ctrl = document.createElement('div');
+        ctrl.id = controlId;
+        ctrl.style.position = 'fixed';
+        ctrl.style.top = '10px';
+        ctrl.style.right = '10px';
+        ctrl.style.background = 'white';
+        ctrl.style.padding = '8px';
+        ctrl.style.zIndex = 9999;
+        ctrl.style.borderRadius = '6px';
+        ctrl.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+        const sel = document.createElement('select');
+        const opt0 = document.createElement('option'); opt0.value = ''; opt0.text = 'Mostrar todos'; sel.appendChild(opt0);
+        for (const g of Object.keys(grupos)) { const o = document.createElement('option'); o.value = g; o.text = g; sel.appendChild(o); }
+        sel.onchange = function () {
+          const group = this.value || null;
+          if (!group) {
+            // mostrar todos
+            citiesLayer.setStyle(f => {
+              const gg = f.properties && f.properties.group;
+              const color = gg ? groupColors[gg] : '#cccccc';
+              return { color, weight: 1.0, opacity: 0.45, fillColor: color, fillOpacity: 0.12 };
+            });
+            // ajustar bound geral
+            try { map_71bc0ee02f152ee69e80da6683c5991a.fitBounds(citiesLayer.getBounds().pad(0.05)); } catch (e) { }
+            return;
+          }
+          // aplicar destaque no grupo selecionado
+          citiesLayer.setStyle(f => {
+            const gg = f.properties && f.properties.group;
+            if (gg === group) {
+              const color = groupColors[gg] || '#2b6cff';
+              return { color: '#0050ff', weight: 1.6, opacity: 0.95, fillColor: color, fillOpacity: 0.30 };
+            } else {
+              return { color: '#999', weight: 0.8, opacity: 0.2, fillColor: '#ddd', fillOpacity: 0.04 };
+            }
+          });
+          // zoom no grupo
+          const layers = [];
+          citiesLayer.eachLayer(l => { if (l.feature && (l.feature.properties || {}).group === group) layers.push(l); });
+          if (layers.length) {
+            const fg = L.featureGroup(layers);
+            try { map_71bc0ee02f152ee69e80da6683c5991a.fitBounds(fg.getBounds().pad(0.08)); } catch (e) { }
+          }
+        };
+        ctrl.appendChild(sel);
+        document.body.appendChild(ctrl);
+      }
+
+      // opcional: zoom inicial para o bounds completo (pode ser pesado)
+      try { map_71bc0ee02f152ee69e80da6683c5991a.fitBounds(citiesLayer.getBounds().pad(0.05)); } catch (e) { }
+
+      console.info('Camada de municípios adicionada e mapeada por grupos.');
+    } catch (err) {
+      console.error('Erro no processamento de grupos/geojson:', err);
+    }
+  }
+
+  // chamar a função
+  loadAndColorGroups();
+
 </script>
+
 </html>

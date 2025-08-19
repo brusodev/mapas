@@ -1,0 +1,117 @@
+{
+  "GRUPO 01": [
+    "CENTRO SUL",
+    "LESTE 4",
+    "SUL 1",
+    "NORTE 2",
+    "LESTE 3",
+    "LESTE 1",
+    "NORTE 1",
+    "LESTE 5",
+    "CENTRO OESTE",
+    "LESTE 2",
+    "SUL 2",
+    "CENTRO",
+    "SUL 3",
+    "GUARULHOS NORTE",
+    "GUARULHOS SUL",
+    "ITAQUAQUECETUBA",
+    "MOGI DAS CRUZES",
+    "SUZANO",
+    "DIADEMA",
+    "MAUÁ",
+    "SANTO ANDRÉ",
+    "SÃO BERNARDO DO CAMPO"
+  ],
+  "GRUPO 02": [
+    "CAIEIRAS",
+    "CARAPICUÍBA",
+    "ITAPECERICA DA SERRA",
+    "ITAPEVI",
+    "OSASCO",
+    "TABOÃO DA SERRA"
+  ],
+  "GRUPO 03": [
+    "ANDRADINA",
+    "ARAÇATUBA",
+    "BIRIGUI",
+    "FERNANDÓPÓLIS",
+    "JALES",
+    "PENÁPOLIS",
+    "VOTUPORANGA"
+  ],
+  "GRUPO 04": [
+    "ARARAQUARA",
+    "FRANCA",
+    "JABOTICABAL",
+    "PIRASSUNUNGA",
+    "RIBEIRÃO PRETO",
+    "SÃO CARLOS",
+    "SÃO JOAQUIM DA BARRA",
+    "SERTÃOZINHO"
+  ],
+  "GRUPO 05": [
+    "ADAMANTINA",
+    "ASSIS",
+    "MIRANTE DO PARANAPANEMA",
+    "OURINHOS",
+    "PRESIDENTE PRUDENTE",
+    "SANTO ANASTÁCIO",
+    "TUPÃ"
+  ],
+  "GRUPO 06": [
+    "APIAI",
+    "ITAPETININGA",
+    "ITAPEVA",
+    "ITARARÉ",
+    "ITU",
+    "SÃO ROQUE",
+    "SOROCABA",
+    "VOTORANTIM"
+  ],
+  "GRUPO 07": [
+    "BRAGANCA PAULISTA",
+    "CAMPINAS LESTE",
+    "CAMPINAS OESTE",
+    "JUNDIAI",
+    "MOGI MIRIM",
+    "SÃO JOÃO DA BOA VISTA"
+  ],
+  "GRUPO 08": [
+    "MIRACATU",
+    "REGISTRO",
+    "SANTOS",
+    "SÃO VICENTE"
+  ],
+  "GRUPO 09": [
+    "CARAGUATATUBA",
+    "GUARATINGUETA",
+    "JACAREI",
+    "PINDAMONHANGABA",
+    "SAO JOSE DOS CAMPOS",
+    "TAUBATE"
+  ],
+  "GRUPO 10": [
+    "BARRETOS",
+    "CATANDUVA",
+    "JOSÉ BONIFACIO",
+    "SÃO JOSÉ DO RIO PRETO",
+    "TAQUARITINGA"
+  ],
+  "GRUPO 11": [
+    "AVARÉ",
+    "BAURU",
+    "BOTUCATU",
+    "JAU",
+    "LINS",
+    "MARILIA",
+    "PIRAJU"
+  ],
+  "GRUPO 12": [
+    "AMERICANA",
+    "CAPIVARI",
+    "LIMEIRA",
+    "PIRACICABA",
+    "SUMARÉ"
+  ]
+}
